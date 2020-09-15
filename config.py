@@ -9,7 +9,7 @@ ROBERTA_PATH = 'xlm-roberta-large'
 Training_file = 'train.csv'
 tokenizer = transformers.AutoTokenizer.from_pretrained(ROBERTA_PATH, do_lower_case = True)
 
-DEVICE = 'cpu'
+DEVICE = 'cuda'
 
 RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
