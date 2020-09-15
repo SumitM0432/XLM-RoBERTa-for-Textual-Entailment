@@ -145,14 +145,14 @@ def run():
 
     # Classification_report
     print(classification_report(y_test, y_pred))
-
+    
     # Confusion matrix
-    tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
-    print ("True Negative : ", tn)
-    print ("False Positive : ", fp)
-    print ("False Negative : ", fn)
-    print ("true positive : ", tp)
+    ln = []
+    # tn, fp, fn, tp 
+    ln = confusion_matrix(y_test, y_pred).ravel()
+    print ("True Negative, False Positive, False Negative, True positive : ", ln)
     print ()
+    
     # Accuracy
     print (accuracy_score(y_test, y_pred))
     print()
