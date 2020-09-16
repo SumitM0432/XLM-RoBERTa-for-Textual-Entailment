@@ -7,7 +7,7 @@ class roberta_model(nn.Module):
     
     def __init__(self, n_classes):
         super(roberta_model, self).__init__()
-        self.roberta = transformers.XLMRobertaModel.from_pretrained(config.ROBERTA_PATH, num_labels = 3)
+        self.roberta = transformers.XLMRobertaForSequenceClassification.from_pretrained(config.ROBERTA_PATH, num_labels = 3)
         self.drop = nn.Dropout(p = 0.3)
         self.out = nn.Linear(self.roberta.config.hidden_size, n_classes)
         
