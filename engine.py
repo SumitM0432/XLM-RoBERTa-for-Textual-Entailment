@@ -20,7 +20,8 @@ def train_roberta_epoch(model, data_loader, loss_fn, optimizer, device, schedule
         
         # Feeding this to the model
         outputs = model(input_ids = input_ids,
-                        attention_mask = attention_mask
+                        attention_mask = attention_mask,
+                        labels = targets
                        )
         
         # taking the output with the highest probability
@@ -71,8 +72,9 @@ def eval_roberta(model, data_loader, loss_fn, device, n_examples):
             
             outputs = model(
               input_ids=input_ids,
-              attention_mask=attention_mask
-            )
+              attention_mask=attention_mask,
+              labels = targets
+                )
             
             _, preds = torch.max(outputs, dim=1)
             
